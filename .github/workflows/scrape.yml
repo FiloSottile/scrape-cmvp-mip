@@ -33,24 +33,8 @@ jobs:
         fi
       env:
         REPO_DESC: ${{ github.event.repository.description }}
-    # Uncomment to use Python:
-    # - name: Set up Python 3.13
-    #   uses: actions/setup-python@v5
-    #   with:
-    #     python-version: "3.13"
-    #     cache: "pip"
-    # - name: Install dependencies
-    #   run: |
-    #     pip install -r requirements.txt
-    # Uncomment to use Playwright via shot-scraper (put shot-scraper in requirements.txt):
-    # - name: Cache Playwright browsers
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~/.cache/ms-playwright/
-    #     key: ${{ runner.os }}-browsers
-    # - name: Install Playwright dependencies
-    #   run: |
-    #     shot-scraper install
+    - name: Set up Go
+      uses: actions/setup-go@v5
     - name: Run the scraper
       run: |
         ./scrape.sh
